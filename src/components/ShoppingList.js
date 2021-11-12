@@ -16,7 +16,7 @@ function ShoppingList({ items }) {
     } else {
         return item.category === selectedCategory;
     }
-  })
+  }).map((item) => (<Item key={item.id} name={item.name} category={item.category}/>))
 
   return (
     <div className="ShoppingList">
@@ -29,9 +29,7 @@ function ShoppingList({ items }) {
         </select>
       </div>
       <ul className="Items">
-        {categoryToDisplay.map((item) => (
-          <Item key={item.id} name={item.name} category={item.category} />
-        ))}
+        {categoryToDisplay}
       </ul>
     </div>
   );
